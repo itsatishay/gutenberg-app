@@ -1,17 +1,6 @@
 import React, { useState } from 'react';
 import './KeyCharacterInteractions.css'; // Import updated CSS
-
-interface Interaction {
-  count: number;
-  key_conversations: string[];
-  relation: string;
-  with: string;
-}
-
-interface Character {
-  name: string;
-  interactions: Interaction[];
-}
+import { Character, Interaction } from '../../types';
 
 interface KeyCharacterInteractionsProps {
   characters: Character[];

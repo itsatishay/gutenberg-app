@@ -2,16 +2,12 @@ import React from 'react';
 import KeyCharacterInteractions from '../KeyCharacterInteractions/KeyCharacterInteractions';
 import InteractionGraph from '../InteractionGraph/InteractionGraph';
 import './AnalysisContainer.css'; // Import the shimmer CSS
+import { Character } from '../../types';
 
 interface Interaction {
   count: number;
   key_conversations: string[];
   with: string;
-}
-
-interface Character {
-  name: string;
-  interactions: Interaction[];
 }
 
 interface AnalysisContainerProps {

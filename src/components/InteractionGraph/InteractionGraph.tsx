@@ -2,17 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Network } from 'vis-network/standalone';
 import 'vis-network/styles/vis-network.css';
 import './InteractionGraph.css';
-
-interface Interaction {
-  count: number;
-  key_conversations: string[];
-  with: string;
-}
-
-interface Character {
-  name: string;
-  interactions: Interaction[];
-}
+import { Character } from '../../types';
 
 interface InteractionGraphProps {
   characters: Character[];
@@ -35,7 +25,6 @@ const InteractionGraph: React.FC<InteractionGraphProps> = ({ characters }) => {
     // Construct edge data, merging interactions for each pair
     const edgeMap: { [key: string]: { from: number, to: number, count: number, lines: string[] } } = {}; // Track edges by pair key
     characters.forEach((char, index) => {
-      const sourceName = char.name;
       const sourceId = index;
       char.interactions.forEach((interaction) => {
         const targetName = interaction.with;
