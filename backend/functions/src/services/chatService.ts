@@ -9,7 +9,6 @@ interface ChatMessage {
   timestamp: Date;
 }
 
-// Initialize Firestore if not already initialized
 if (!admin.apps.length) {
   admin.initializeApp();
 }
@@ -32,7 +31,6 @@ export async function saveChatMessage(chatSessionId: string, message: ChatMessag
   
   await messagesRef.add(message);
   
-  // Update the session's updatedAt timestamp
   await db.collection(CHAT_SESSIONS_COLLECTION)
     .doc(chatSessionId)
     .update({ updatedAt: new Date() });

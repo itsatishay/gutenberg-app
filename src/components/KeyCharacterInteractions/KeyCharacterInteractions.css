@@ -1,6 +1,4 @@
-/* KeyCharacterInteractions.css */
 
-/* Style the box for each main character */
 .main-character-box {
     background-color: white;
     border: 0.25px solid rgba(0, 0, 0, 0.2);
@@ -11,15 +9,11 @@
     transition: all 0.3s ease;
   }
   
- /* KeyCharacterInteractions.css */
-
-/* Style the box for each main character */
 
 .main-character-box:hover {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2); /* Hover effect for box */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2); 
 }
 
-/* Style the name and expand icon for each main character */
 .main-character-name {
   font-weight: bold;
   display: flex;
@@ -28,24 +22,21 @@
   cursor: pointer;
 }
 
-/* Expand icon styles */
 .expand-icon {
   font-size: 20px;
   cursor: pointer;
 }
 
-/* Blue minus icon */
 .main-character-box .expand-icon.minus {
-  color: #1976d2; /* Blue for minus (−) */
+  color: #1976d2; 
 }
 
-/* Grey plus icon */
 .main-character-box .expand-icon.plus {
-  color: #b0b0b0; /* Grey for plus (+) */
+  color: #b0b0b0; 
 }
 
 .sub-character-list {
-  margin-left: 20px; /* Indent sub-characters */
+  margin-left: 20px; 
   margin-top: 10px;
 }
 

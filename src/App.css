@@ -50,14 +50,12 @@
   padding: 1rem;
 }
 
-/* Container for both the shimmer and the actual graph */
 .graph-container {
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Shimmer effect when loading */
 .shimmer-container {
   padding: 20px;
   background: #fff;
@@ -82,7 +80,6 @@
   border-radius: 4px;
 }
 
-/* Shimmer animation */
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;

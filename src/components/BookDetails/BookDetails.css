@@ -148,7 +148,6 @@
     }
   }
   
-  /* Media Query for mobile view */
   @media (max-width: 600px) {
     .book-details-container {
       flex-direction: column;

@@ -26,7 +26,7 @@ export async function checkExistingAnalysis(bookId: string): Promise<any | null>
   const now = new Date();
   const diffInHours = (now.getTime() - savedAt.getTime()) / (1000 * 60 * 60);
 
-  // Check if analysis is older than allowed cached hours
+  // Check if analysis is older than cached hours
   if (diffInHours > cachedHours) {
     return null;
   }

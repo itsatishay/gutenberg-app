@@ -6,8 +6,8 @@
   }
   .example-list .example-item {
     flex: none;
-    background-color: #1976d2; /* Blue background */
-    color: #fff; /* White text */
+    background-color: #1976d2;
+    color: #fff; 
     border: none;
     border-radius: 5px;
     padding: 0.25rem 0.75rem;
@@ -17,10 +17,10 @@
   }
   
   .example-list .example-item:hover {
-    background-color: #135ba1; /* Darker blue on hover */
+    background-color: #135ba1; 
   }
   
   .example-list .example-item:active {
-    background-color: #0d4f8f; /* Even darker blue when active */
+    background-color: #0d4f8f; 
   }
   

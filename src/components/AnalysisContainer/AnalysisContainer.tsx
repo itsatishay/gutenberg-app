@@ -1,7 +1,7 @@
 import React from 'react';
 import KeyCharacterInteractions from '../KeyCharacterInteractions/KeyCharacterInteractions';
 import InteractionGraph from '../InteractionGraph/InteractionGraph';
-import './AnalysisContainer.css'; // Import the shimmer CSS
+import './AnalysisContainer.css';
 import { Character } from '../../types';
 
 interface AnalysisContainerProps {
@@ -12,7 +12,6 @@ interface AnalysisContainerProps {
 const AnalysisContainer: React.FC<AnalysisContainerProps> = ({ characters, loading }) => {
   return (
     <div className="analysis-container">
-      {/* Show shimmer when loading */}
       {loading ? (
         <div className="shimmer-container">
           <div className="shimmer-text" />

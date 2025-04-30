@@ -23,13 +23,13 @@ const InteractionGraph: React.FC<InteractionGraphProps> = ({ characters }) => {
     }));
 
     // Construct edge data, merging interactions for each pair
-    const edgeMap: { [key: string]: { from: number, to: number, count: number, lines: string[] } } = {}; // Track edges by pair key
+    const edgeMap: { [key: string]: { from: number, to: number, count: number, lines: string[] } } = {};
     characters.forEach((char, index) => {
       const sourceId = index;
       char.interactions.forEach((interaction) => {
         const targetName = interaction.with;
         const targetIndex = characters.findIndex((c) => c.name === targetName);
-        if (targetIndex === -1) return; // If the target character doesn't exist, skip it
+        if (targetIndex === -1) return; // If the target character not exist skip it
 
         const edgeKey = sourceId < targetIndex ? `${sourceId}-${targetIndex}` : `${targetIndex}-${sourceId}`;
         
@@ -42,25 +42,25 @@ const InteractionGraph: React.FC<InteractionGraphProps> = ({ characters }) => {
       });
     });
 
-    // Construct edges array with proper width and HTML tooltip
+    // Construct edges array with proper width and html tooltip
     const edges = Object.values(edgeMap).map((edge) => ({
       from: edge.from,
       to: edge.to,
-      width: edge.count, // Set width based on the interaction count
-      title: `Key Conversations: ${edge.lines.join(', ')}`, // Tooltip with HTML content
+      width: edge.count, 
+      title: `Key Conversations: ${edge.lines.join(', ')}`, 
     }));
 
-    // Create the network data
+    
     const data = { nodes, edges };
     const options = {
       interaction: {
-        zoomable: false, // Disable zooming
-        dragNodes: false, // Disable node dragging
-        dragView: false, // Disable panning
-        hover: true, // Enable hover for edge details
+        zoomable: false, 
+        dragNodes: false, 
+        dragView: false, 
+        hover: true, 
       },
       edges: {
-        smooth: false, // Disable arrows and make edges simple
+        smooth: false, 
       },
       layout: {
         randomSeed: 2,
@@ -75,14 +75,12 @@ const InteractionGraph: React.FC<InteractionGraphProps> = ({ characters }) => {
       },
       tooltip: {
         followMouse: true,
-        maxWidth: 300, // Set max width for the tooltip
+        maxWidth: 300, 
       },
     };
 
-    // Initialize the network
     new Network(containerRef.current, data, options);
 
-    // Cleanup on unmount
     return () => {
       if (containerRef.current) {
         const network = new Network(containerRef.current, data, options);

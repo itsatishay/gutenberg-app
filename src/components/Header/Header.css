@@ -2,7 +2,6 @@
     background-color: #1976d2;
     color: #fff;
     padding: 1rem;
-    /* Add a subtle shadow below the header */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   .app-header h1 {

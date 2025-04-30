@@ -11,23 +11,19 @@ export async function handleChatMessage(req: Request, res: Response) {
   }
 
   try {
-    // Get or create chat session
     let chatHistory = await getChatHistory(chatSessionId) || [];
     const isNewSession = chatHistory.length === 0;
 
-    // If new session, create it
     if (isNewSession) {
       await createChatSession(chatSessionId, bookId);
     }
 
-    // Get book content
     const bookContent = await fetchBookContent(bookId);
 
-    // Set timeout for the entire operation
     const timeoutPromise = new Promise<string>((_, reject) => {
       setTimeout(() => {
         reject(new Error('Request timeout'));
-      }, 30000); // 30 seconds timeout
+      }, 30000); 
     });
 
     // Get response from LLM with timeout

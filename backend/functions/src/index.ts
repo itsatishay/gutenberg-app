@@ -29,7 +29,6 @@ app.post("/book-metadata", async (req, res) => {
     }
   });
 
-// New chat endpoints
 app.post("/chat", async (req, res) => {
   try {
     await handleChatMessage(req, res);

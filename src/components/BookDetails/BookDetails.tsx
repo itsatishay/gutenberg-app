@@ -15,7 +15,6 @@ interface BookDetailsProps {
   onChatClick: () => void;
 }
 
-// Import the SVGs as URLs
 import bookIcon from '../../assets/book.svg';
 import personIcon from '../../assets/person.svg';
 
@@ -38,7 +37,6 @@ const BookDetails: React.FC<BookDetailsProps> = ({ data, loading, loadingAnalyze
       </div>
       <div className="info-container">
         <div className="title-row">
-          {/* Book icon from assets as img tag */}
           <img src={bookIcon} alt="Book Icon" className="icon" width="24" height="24" />
           {loading ? (
             <div className="text-skeleton title-skeleton shimmer"></div>
@@ -47,7 +45,6 @@ const BookDetails: React.FC<BookDetailsProps> = ({ data, loading, loadingAnalyze
           )}
         </div>
         <div className="author-row">
-          {/* User icon from assets as img tag */}
           <img src={personIcon} alt="User Icon" className="icon" width="24" height="24" />
           {loading ? (
             <div className="text-skeleton author-skeleton shimmer"></div>

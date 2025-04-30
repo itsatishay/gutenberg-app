@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './KeyCharacterInteractions.css'; // Import updated CSS
+import './KeyCharacterInteractions.css'; 
 import { Character } from '../../types';
 
 interface KeyCharacterInteractionsProps {
@@ -9,7 +9,6 @@ interface KeyCharacterInteractionsProps {
 const KeyCharacterInteractions: React.FC<KeyCharacterInteractionsProps> = ({ characters }) => {
   const [expandedCharacters, setExpandedCharacters] = useState<Set<string>>(new Set());
 
-  // Toggle the visibility of a character's interactions
   const toggleExpand = (characterName: string) => {
     setExpandedCharacters((prevState) => {
       const newExpandedCharacters = new Set(prevState);
@@ -45,7 +44,6 @@ const KeyCharacterInteractions: React.FC<KeyCharacterInteractionsProps> = ({ cha
                 {expandedCharacters.has(character.name) ? '−' : '+'}
               </span>
             </div>
-            {/* Only show interactions if the character is expanded */}
             {expandedCharacters.has(character.name) && (
               <div className="sub-character-list">
                 {character.interactions

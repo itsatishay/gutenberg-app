@@ -77,11 +77,11 @@ Now analyze the book content below and produce the JSON:
                 type: Type.OBJECT,
                 properties: {
                   with: { type: Type.STRING },
-                  count: { type: Type.NUMBER },  // number of interactions
-                  relation: { type: Type.STRING },  // relationship between characters
+                  count: { type: Type.NUMBER },  
+                  relation: { type: Type.STRING },  
                   key_conversations: {
                     type: Type.ARRAY,
-                    items: { type: Type.STRING }  // 1-2 key conversation excerpts
+                    items: { type: Type.STRING }  
                   }
                 },
                 required: ['with', 'count', 'relation', 'key_conversations']
@@ -93,7 +93,7 @@ Now analyze the book content below and produce the JSON:
       },
       summary: {
         type: Type.ARRAY,
-        items: { type: Type.STRING }  // 2-4 sentences summarizing the story
+        items: { type: Type.STRING }  
       }
     },
     required: ['characters', 'summary']
@@ -127,7 +127,7 @@ Now analyze the book content below and produce the JSON:
 }
 
 const MAX_RETRIES = 3;
-const INITIAL_RETRY_DELAY = 1000; // 1 second
+const INITIAL_RETRY_DELAY = 1000; 
 
 async function sleep(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -178,7 +178,7 @@ export async function chatWithBook(bookContent: string, userMessage: string, cha
                 config: {
                     temperature: 0.2,
                     candidateCount: 1,
-                    maxOutputTokens: 500 // Limit response length
+                    maxOutputTokens: 500 
                 }
             });
 
@@ -191,7 +191,6 @@ export async function chatWithBook(bookContent: string, userMessage: string, cha
         } catch (error: any) {
             lastError = error;
             
-            // Check if it's a 503 error
             if (error.message?.includes('503') || error.message?.includes('UNAVAILABLE')) {
                 if (retryCount < MAX_RETRIES - 1) {
                     console.log(`Retry attempt ${retryCount + 1} after ${retryDelay}ms`);
@@ -202,11 +201,9 @@ export async function chatWithBook(bookContent: string, userMessage: string, cha
                 }
             }
             
-            // If it's not a 503 error or we've exhausted retries, throw the error
             throw error;
         }
     }
 
-    // If we've exhausted all retries, throw the last error
     throw lastError || new Error('Failed to get response after multiple retries');
 }

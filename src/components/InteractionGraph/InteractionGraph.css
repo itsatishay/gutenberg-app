@@ -1,7 +1,7 @@
 .disable-mouse-gestures {
-    user-select: none; /* Disable text selection */
-    pointer-events: none; /* Disable all mouse interactions */
-    touch-action: none; /* Disable touch gestures like swipe and pinch-to-zoom */
+    user-select: none; 
+    pointer-events: none; 
+    touch-action: none; 
     height: 500px;
     width: 100%;
     margin: 0;
@@ -12,11 +12,10 @@
     padding: 10px;
     border-radius: 5px;
     font-size: 14px;
-    white-space: pre-wrap; /* Allow wrapping of long lines */
+    white-space: pre-wrap; 
     word-wrap: break-word;
   }
   
-/* InteractionGraph.css */
 
 h2 {
     font-weight: bold;
@@ -25,14 +24,12 @@ h2 {
   }
   
   .disable-mouse-gestures {
-    /* You can modify the height and width as needed */
     height: 500px;
     width: 100%;
     margin: 0;
   }
   
   
-  /* Shimmer effect styles */
   .shimmer-container {
     display: flex;
     flex-direction: column;
@@ -90,13 +87,13 @@ h2 {
   }
   
   .interaction-line.low {
-    background-color: #1976d2; /* Blue for Low Interaction */
-    width: 50px; /* Small width line for Low interaction */
+    background-color: #1976d2; 
+    width: 50px; 
     height: 2px;
   }
   
   .interaction-line.high {
-    background-color: #1976d2; /* Blue for High Interaction */
-    width: 50px; /* Thick width line for High interaction */
+    background-color: #1976d2; 
+    width: 50px; 
     height: 8px;
   }

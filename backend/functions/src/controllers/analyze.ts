@@ -22,12 +22,10 @@ export async function analyzeBook(req: Request, res: Response) {
   } catch (error: any) {
     console.error("Error analyzing book:", error);
 
-    // Check if it's a "book not found" type error
     if (error.message && error.message.includes("not found")) {
       return res.status(404).json({ error: error.message });
     }
 
-    // Any other server error
     return res.status(500).json({ error: error.message || "Internal Server Error" });
   }
 }
