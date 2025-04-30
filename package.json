@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://itsatishay.github.io/gutenberg-front",
+  "homepage": "https://itsatishay.github.io/gutenberg-app",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
