@@ -1,0 +1,77 @@
+/* KeyCharacterInteractions.css */
+
+/* Style the box for each main character */
+.main-character-box {
+    background-color: white;
+    border: 0.25px solid rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+ /* KeyCharacterInteractions.css */
+
+/* Style the box for each main character */
+
+.main-character-box:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2); /* Hover effect for box */
+}
+
+/* Style the name and expand icon for each main character */
+.main-character-name {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Expand icon styles */
+.expand-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Blue minus icon */
+.main-character-box .expand-icon.minus {
+  color: #1976d2; /* Blue for minus (−) */
+}
+
+/* Grey plus icon */
+.main-character-box .expand-icon.plus {
+  color: #b0b0b0; /* Grey for plus (+) */
+}
+
+.sub-character-list {
+  margin-left: 20px; /* Indent sub-characters */
+  margin-top: 10px;
+}
+
+.sub-character {
+  margin-bottom: 15px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+.sub-character-name {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.relation-text {
+  color: #666;
+  font-size: 0.9em;
+  margin-left: 5px;
+  font-weight: normal;
+}
+
+.conversation-text p {
+  margin: 8px 0;
+  font-weight: normal;
+  line-height: 1.4;
+}

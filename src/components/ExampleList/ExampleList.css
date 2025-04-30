@@ -1,0 +1,26 @@
+.example-list {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .example-list .example-item {
+    flex: none;
+    background-color: #1976d2; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 0.25rem 0.75rem;
+    font: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .example-list .example-item:hover {
+    background-color: #135ba1; /* Darker blue on hover */
+  }
+  
+  .example-list .example-item:active {
+    background-color: #0d4f8f; /* Even darker blue when active */
+  }
+  
