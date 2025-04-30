@@ -3,7 +3,7 @@
 https://itsatishay.github.io/gutenberg-app/
 
 ## Demo Video
-[![Gutenberg Book Analysis Demo](https://img.youtube.com/vi/D5MTYo3CzcQ/0.jpg)](https://youtu.be/D5MTYo3CzcQ)
+Watch the demo video here: https://youtu.be/D5MTYo3CzcQ
 
 A web application that allows users to analyze and interact with Project Gutenberg books. Users can search for books by ID, view book details, analyze character interactions, and chat with an AI about the book's content.
 
