@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 import SearchBar from './components/SearchBar/SearchBar';
 import ExampleList from './components/ExampleList/ExampleList';
 import BookDetails from './components/BookDetails/BookDetails';
 import AnalysisContainer from './components/AnalysisContainer/AnalysisContainer';
+import ChatPage from './components/ChatPage/ChatPage';
 
 interface Book {
   id: number;
@@ -11,6 +13,7 @@ interface Book {
 }
 
 interface BookData {
+  id: string;
   coverImageUrl: string;
   title: string;
   author: string;
@@ -24,12 +27,21 @@ const exampleBooks: Book[] = [
   { id: 11, title: 'Alice in Wonderland' },
 ];
 
-const App: React.FC = () => {
+const MainContent: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [bookData, setBookData] = useState<BookData | null>(null);
   const [loadingAnalyze, setLoadingAnalyze] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [characters, setCharacters] = useState<any[]>([]);
+  const [chatSessionId, setChatSessionId] = useState<string>('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Generate a new chat session ID when a new book is searched
+    if (bookData) {
+      setChatSessionId(crypto.randomUUID());
+    }
+  }, [bookData]);
 
   const handleSearch = async (queryId: string) => {
     try {
@@ -49,6 +61,7 @@ const App: React.FC = () => {
       const data = await bookResponse.json();
       const { coverImageUrl, shortTitle, author } = data;
       setBookData({
+        id: queryId,
         coverImageUrl,
         title: shortTitle,
         author,
@@ -66,6 +79,7 @@ const App: React.FC = () => {
       }
       const analyzeResponse = await summaryResponse.json();
       setBookData({
+        id: queryId,
         coverImageUrl,
         title: shortTitle,
         author,
@@ -96,9 +110,14 @@ const App: React.FC = () => {
     setSearchTerm(`${book.id}`);
   };
 
+  const handleChatClick = () => {
+    if (bookData) {
+      navigate(`/chat/${bookData.id}/${chatSessionId}`);
+    }
+  };
+
   return (
-    <div>
-      <Header title="Project Gutenberg" />
+    <>
       <div className="home-container-wrapper">
         <SearchBar
           value={searchTerm}
@@ -110,21 +129,39 @@ const App: React.FC = () => {
       </div>
 
       {(loading || (bookData && bookData.title !== "")) && (
-          <BookDetails
-            data={bookData}
-            loading={loading}
-            loadingAnalyze={loadingAnalyze}
-          />
+        <BookDetails
+          data={bookData}
+          loading={loading}
+          loadingAnalyze={loadingAnalyze}
+          onChatClick={handleChatClick}
+        />
       )}
 
-{(loadingAnalyze || (characters && characters.length !== 0)) && (
+      {(loadingAnalyze || (characters && characters.length !== 0)) && (
         <div className='home-container-wrapper'>
-              <AnalysisContainer characters={characters} loading={loadingAnalyze} />
-          
+          <AnalysisContainer characters={characters} loading={loadingAnalyze} />
         </div>
       )}
+    </>
+  );
+};
 
-    </div>
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div>
+        <Header title="Project Gutenberg" />
+        <Routes>
+          <Route path="/" element={<MainContent />} />
+          <Route path="/chat/:bookId/:chatSessionId" element={
+            <ChatPage
+              bookId={window.location.pathname.split('/')[2]}
+              chatSessionId={window.location.pathname.split('/')[3]}
+            />
+          } />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

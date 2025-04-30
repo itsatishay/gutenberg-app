@@ -12,13 +12,14 @@ interface BookDetailsProps {
   data: BookData | null;
   loading: boolean;
   loadingAnalyze: boolean;
+  onChatClick: () => void;
 }
 
 // Import the SVGs as URLs
 import bookIcon from '../../assets/book.svg';
 import personIcon from '../../assets/person.svg';
 
-const BookDetails: React.FC<BookDetailsProps> = ({ data, loading, loadingAnalyze }) => {
+const BookDetails: React.FC<BookDetailsProps> = ({ data, loading, loadingAnalyze, onChatClick }) => {
   if (!data && !loading) return null;
 
   const { coverImageUrl, title, author, summary } = data || {};
@@ -31,7 +32,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({ data, loading, loadingAnalyze
         ) : (
           <>
             <img src={coverImageUrl} alt={title} className="cover-image" />
-            <button className="chat-button">Chat about book</button>
+            <button className="chat-button" onClick={onChatClick}>Chat about book</button>
           </>
         )}
       </div>
